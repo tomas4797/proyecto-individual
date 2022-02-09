@@ -1,11 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
-export function getRecipe()
-
-export function getRecipes (query){
+export function getRecipes (query) {
     return function (dispatch) {
         if (!query){
-            return axios.get ("/recipe").then((Response) => {
+            return axios.get ("/recipes").then((Response) => {
                 dispatch({
                     type: "GET_RECIPE",
                     payload: Response.data.result,
@@ -13,10 +11,10 @@ export function getRecipes (query){
             });
         }else{
             return axios
-            .get("/recipe?query=" + query)
+            .get("/recipes?query=" + query)
             .then((response) => {
                 dispatch({
-                    type: "GET_RECIPE",
+                    type: "GET_RECIPES",
                     payload: response.data,
                 });
             });
@@ -26,7 +24,7 @@ export function getRecipes (query){
 
 export function getID (id) {
     return function (dispatch){
-        return axios.get (`/recipe/` + id).then ((response) => {
+        return axios.get (`/recipes/` + id).then ((response) => {
             dispatch({
                 type: "GET_ID",
                 payload: response.data,

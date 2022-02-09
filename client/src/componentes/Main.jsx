@@ -1,5 +1,8 @@
 import React from "react";
 import MostrarRecetas from "./MostrarRecetas";
+import Buscador from "./Buscador";
+
+
 
 
 
