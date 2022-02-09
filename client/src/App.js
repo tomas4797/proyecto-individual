@@ -1,19 +1,20 @@
 import './App.css';
-import { BrowserRouter, Router, Switch } from 'react-router-dom'
-import Landing from './componentes/Landing'
-import Home from './componentes/Home';
+import { Route } from 'react-router-dom'
+import Landing from './componentes/Landing' 
+import React from 'react';
+import Main from './componentes/Main'
+
 
 function App() {
-  return (
-    <BrowserRouter> 
-    <div className="App">
-      <switch>
-      <route exact path = '/' component = {Landing}/>
-      <route path = '/Home' component = {Home}/>
-      </switch>
-    </div>
-    </BrowserRouter>
-  );
+        <React.Fragment>
+
+        <Route exact path = '/'element={<Landing/>} />
+        <Route path = '/recipe' element = { <Main />}  />
+        {/* <Route path = '/CreateRecipe' component = {Form} />
+        <Route path = '/recipe/:id' component = {detalleReceta} /> */}
+
+
+        </React.Fragment>
 }
 
 export default App;
