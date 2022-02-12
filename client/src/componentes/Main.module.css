@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.divMain {
+    
+    grid-template-areas: 
+    "nav nav nav" 
+    "buscador buscador buscador" 
+    "main main main" 
+    "footer footer footer";
+    grid-gap:50px;
+}
+
+.nav {
+    
+    grid-area: nav;
+}
+
+.main {
+    grid-area: main;
+}
+.buscador {
+    grid-area: buscador;
+}

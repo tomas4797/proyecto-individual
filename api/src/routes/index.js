@@ -12,18 +12,19 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const getApiInfo = async () => {
-    const { query } = req.query
-    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=76f94d613f0e484cad1ca3abb924e6e2&addRecipeInformation=true&number=10`);
+    // const { query } = req.query
+    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=76f94d613f0e484cad1ca3abb924e6e2&addRecipeInformation=true&number=10`);
+    console.log (apiUrl.data.results[0])
     const apiInfo = await apiUrl.data.results.map ( el =>{
         return {
             id: el.id,
-            name: el.name,
+            name: el.title,
             summary: el.summary,
             score: el.score,
             healthScore: el.healthScore,
             steps: el.steps,
             diets: el.diets,
-            img: el.img
+            img: el.image
             
         };
     });

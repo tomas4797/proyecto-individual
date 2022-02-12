@@ -1,17 +1,21 @@
 import { React } from 'react'
-import { Link } from 'react-router-dom';
+import styles from '../componentes/Landing.module.css'
 
 
-export default function LandingPage(){
-      return(
-        <div>
-        
-            <h1>Bienvenido a las recetas de henry</h1>
-            <Link to = '/Main'>
-                <button>Ingresar</button>
-            </Link>
-        </div>
+export default function Landing() {
 
-      )
-
+  return (
+      <div className={styles.divMain}>
+          <div className={styles.card}>
+              {console.log ("Landing")}
+              <h1>Bienvenido a las Recetas de Henry</h1>
+          <a href="/Main" className={styles.btnStart}>
+                  Iniciar
+              </a>
+          </div>
+      </div>
+  )
 }
+              
+
+             

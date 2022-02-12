@@ -1,0 +1,58 @@
+.divMain {
+    overflow:visible !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 15rem;
+}
+
+
+
+.card {
+    
+    background-color: #363636da;
+    width: 250px;
+    height: 300px;
+    margin: auto;
+    border-radius: 15px;
+    grid-area: main;
+    transition: background-color 500ms;
+}
+
+.card:hover {
+    background-color: #141414;
+    
+    /* transition: 1s; */
+}
+
+.card h1 {
+    text-align: center;
+    color: #fff;
+    margin-top: 50px;
+}
+
+
+
+.btnStart {
+    margin: auto;
+    display: flex;
+    margin-top: 100px;
+    color: #000000;
+    background-color: #fbff1e6e;
+    border: none;
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: none;
+    transition: background-color 500ms;
+
+}
+
+.btnStart:hover {
+    background-color: #fbff1e;
+    /* transition: 1500ms; */
+    cursor: pointer;
+}

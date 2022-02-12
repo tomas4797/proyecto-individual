@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pattaya', sans-serif;
+    letter-spacing: 3px;
+    
+    font-size: 20px;
+    
+}
+
+.divMain {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.divCard {
+    margin-top: 20px;
+    /* justify-content: space-evenly; */
+    background-color: #b16b2bbe;
+    width: 270px;
+    height: 450px;
+    margin: 20px;
+    border-radius: 5px;
+    /* grid-area: main; */
+    /* border: 2px solid black; */
+    margin-bottom: 100px;
+    box-shadow: 0px 0px 20px 15px #000000;
+}
+
+.divCard p {
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.titles {
+    padding: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.link{
+
+    text-decoration: none;
+}
+
+.cardImg {
+    width: 270px;
+    height: 180px;
+    justify-content: center;
+    /* margin: 10px; */
+    /* border: 2px solid black; */
+}
+
+.divCentral {
+    margin: auto;
+    /* grid-area: main; */
+    /* justify-content: space-evenly; */
+}
+
+.divCard h5 {
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(32, 27, 27);
+}
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #000000d8;
+    width: 450px;
+    margin: auto;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.pagination li {
+    text-align: center;
+    color: white;
+    width: fit-content;
+    background-color: transparent;
+    padding: 10px;
+    /* border: 1px solid white; */
+    cursor: pointer;
+}
+
+.pagination li.active {
+    /* background-color: white; */
+    color: yellow;
+}
+
+.pdepaginado {
+    background-color: transparent;
+    margin-top: 6px;
+    display: flex;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 6px;
+    font-size: 17px;
+    border-radius: 20px;
+    transition: color 500ms;
+}
+
+.pagination li button:hover {
+    /* background-color: white; */
+    border-radius: 20px;
+    color: yellow;
+}

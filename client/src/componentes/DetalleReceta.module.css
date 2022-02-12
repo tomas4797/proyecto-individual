@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.divPrincipal {
+    display: grid;
+    grid-template-areas: "nav nav nav" "main main main";
+    grid-gap: 150px;
+}
+
+.nav {
+    grid-area: nav;
+}
+
+.divMain {
+    width: 70vw;
+    margin: auto;
+    background-color: #b16b2bbe;
+    height: fit-content;
+    border-radius: 20px;
+    margin-bottom: 150px;
+    grid-area: main;
+    box-shadow: 0 0 15px 10px #1f0202be;
+}
+
+.divMain p {
+    text-align: center;
+    /* font-weight: bold; */
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    border: 5px solid black;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.img img {
+    border-radius: 20px;
+    width: 400px;
+    height: 250px;
+}
+
+/* 
+.imgg {
+    border-radius: 20px;
+    height: 230px;
+    width: 400px;
+} */
+
+.title {
+    background-color: black;
+    height: 65px;
+    display: flex;
+    border-radius: 20px 20px 0 0;
+}
+
+.title p {
+    color: #ffddbd;
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+    font-size: 25px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    font-size: 30px;
+}
+
+.healthScore {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+}
+
+.diets {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.dishTypes {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.summary {
+    display: flex;
+    background-color: black;
+    width: 90%;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.summary p {
+    margin: auto;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 2px;
+}
+
+.instructions {
+    /* display: flex; */
+    background-color: black;
+    width: 90%;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.instructions p {
+    display: flex;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    /* width: fit-content; */
+}
+
+.steps {
+    /* display: flex; */
+    background-color: black;
+    width: 90%;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.steps p {
+    display: flex;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    /* width: fit-content; */
+}
