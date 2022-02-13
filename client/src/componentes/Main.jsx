@@ -8,6 +8,8 @@ import styles from '../componentes/Main.module.css';
 
 
 
+
+
 export default function Main (){
     return (
         <div className={styles.divMain}>
@@ -28,4 +30,6 @@ export default function Main (){
         </div>
     )
 }
+
+
 

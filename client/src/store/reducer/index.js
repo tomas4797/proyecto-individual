@@ -64,6 +64,7 @@ function sortAsc(arr, field) {
     filteredRecipes: [],
     submit: " ",
     filtrados: " ",
+    
   };
   
   function rootReducer(state = initialState, action) {
@@ -72,7 +73,9 @@ function sortAsc(arr, field) {
         return {
           ...state,
           recipes: action.payload,
+      
         };
+        
   
       case "GET_ID":
         console.log("holi mami", action.payload);

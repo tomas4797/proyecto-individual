@@ -7,7 +7,7 @@ export function getRecipes(query) {
         console.log (response.data,"AAAAAAAAAAAAAAAAAAAAAAAAAA IF")
         dispatch({
           type: "GET_RECIPES",
-          payload: response.data.results, 
+          payload: response.data, 
         });
       });
     } else {

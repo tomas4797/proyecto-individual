@@ -151,7 +151,7 @@ export function CrearReceta(props) {
 
 function mapStateToProps(state) {
     return {
-        diets: state.diets, //REVISAR POR QUÉ NO SE TRAEN LOS TIPOS DE DIETA
+        diets: state.diets,          //REVISAR POR QUÉ NO SE TRAEN LOS TIPOS DE DIETA
         submit: state.submit,
     };
 };

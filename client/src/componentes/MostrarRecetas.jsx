@@ -4,6 +4,9 @@ import styles from "../componentes/MostrarRecetas.module.css";
 import { connect } from "react-redux";
 import { getRecipes } from "../store/actions/index";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector} from "react-redux";
+
+
 
 function MostrarRecetas({ recipes, filteredRecipes, getRecipes }) {
   const renderRecipes = (ARRAYRECETAS) => {
@@ -14,31 +17,34 @@ function MostrarRecetas({ recipes, filteredRecipes, getRecipes }) {
         <div className={styles.divMain}>
           {ARRAYRECETAS?.map((recipe) => {
             return (
-              <div className={styles.divCentral}>
+              <div key = { recipe.id } className={styles.divCentral}>
                 <div className={styles.divCard}>
                   <Link className={styles.link} to={`/recipe/${recipe.id}`}>
-                    <div className={styles.titles}>{recipe.title}</div>
+                    <div className={styles.titles}>{recipe.name}</div>
                   </Link>
 
                   <img
-                    src={recipe.image}
+                    src={recipe.img}
                     alt="Imágen no encontrada"
                     className={styles.cardImg}
                   />
 
                   <h5>Diet Types</h5>
 
-                  {recipe.diets
-                    ? recipe.diets?.map((recipe) => {
-                        return <p>{recipe}</p>;
+                  {/* {recipe.diets
+                    ? recipe.diets?.map((recipe,i) => {
+                        return <p Key={`${i}-1`}>{recipe}</p>;
                       })
-                    : recipe.types?.map((r) => {
-                        return <p>{r.name}</p>;
-                      })}
+                    : recipe.types?.map((r,i) => {
+                        return <p Key={`${i}-2`}>{r.name}</p>;
+                      })} */}
+
+                     <p> {recipe.diets?.join(" ")}</p>
+
                 </div>
               </div>
             );
-          }).slice(currentPage, currentPage + 10)}
+          }).slice(currentPage, currentPage + 9)}
         </div>
       );
     }
@@ -46,13 +52,13 @@ function MostrarRecetas({ recipes, filteredRecipes, getRecipes }) {
 
   const [currentPage, setcurrentPage] = useState(0);
   const nextPage = () => {
-    setcurrentPage(currentPage + 10);
+    setcurrentPage(currentPage + 9);
   };
   const prevPage = () => {
-    if (currentPage > 0) setcurrentPage(currentPage - 10);
+    if (currentPage > 0) setcurrentPage(currentPage - 9);
   };
 
-  const numberPage = currentPage / 10 + 1;
+  const numberPage = currentPage / 9 + 1;
 // eslint-disable-next-line
   function getRecipesFunction() {
     getRecipes();
@@ -60,7 +66,7 @@ function MostrarRecetas({ recipes, filteredRecipes, getRecipes }) {
 
   useEffect(() => {
     getRecipesFunction();
-  }, [getRecipesFunction]);
+  }, []);
 
   //   const filteredRecipes = useSelector((state) => state.filteredRecipes);
 
@@ -94,3 +100,5 @@ const mapDispatchtoProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchtoProps)(MostrarRecetas);
+
+

@@ -73,7 +73,7 @@ function Filter(props) {
 
   useEffect(() => {
     getDietsFunction();
-  }, [getDietsFunction]);
+  }, []);
 
   return (
     <div className={styles.selects}>

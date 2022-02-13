@@ -13,7 +13,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 const getApiInfo = async () => {
     // const { query } = req.query
-    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=76f94d613f0e484cad1ca3abb924e6e2&addRecipeInformation=true&number=10`);
+    const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=bd9b3cb41f1a4e4381c5a4952f846ff6&addRecipeInformation=true&number=20`);
     console.log (apiUrl.data.results[0])
     const apiInfo = await apiUrl.data.results.map ( el =>{
         return {
@@ -33,7 +33,7 @@ const getApiInfo = async () => {
 
 router.get('/recipe/:id', (req, res, next) => {
     const id = req.params.id;
-    axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=76f94d613f0e484cad1ca3abb924e6e2&addRecipeInformation=true`)
+    axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=bd9b3cb41f1a4e4381c5a4952f846ff6&addRecipeInformation=true`)
     .then(recipe => {
         res.send(recipe.data)
     })
@@ -54,6 +54,12 @@ const getDbInfo = async () => {
         }
     })
 }
+
+router.get('/Types', async (req, res,) => {
+    const types = await Diet.findAll()
+    res.status(200).send(types);
+})
+
 
 const getAllRecipe = async () => {
     let apiInfo = await getApiInfo();
@@ -80,7 +86,7 @@ router.get ('/recipes', async (req, res) =>{
 router.post ('/recipe', async (req, res) => {
     let { title, summary, score, healthScore, steps, diet} = req.body
     const recipe = await Recipe.create ({
-        id: uuidv4 (),
+        id: uuidv4 (), 
         title,
         summary,
         score,
@@ -160,6 +166,7 @@ router.post ('/recipe', async (req, res) => {
             res.status(404).send('No se encontro esa receta')
         }
     })
+
 
 
 
