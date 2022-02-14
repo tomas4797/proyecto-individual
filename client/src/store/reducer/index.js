@@ -1,28 +1,5 @@
-// const initialState = {
-//     recipe : []
-    
-// }
-
-
-
-
-
-
-// function rootReducer (state = initialState,action){
-//     switch (action.type){
-//         case 'GET_RECIPES':
-//             return{
-//                 ...state,
-//                 recipe:action.payload
-//             }
-//     }
-
-// }
-
-// export default rootReducer;
-
-
 function sortAsc(arr, field) {
+  console.log("ENTRE A SORT ASC")
     return arr.sort(function (a, b) {
       if (a[field] > b[field]) {
         return 1;
@@ -35,6 +12,7 @@ function sortAsc(arr, field) {
   }
   
   function sortDesc(arr, field) {
+    console.log("ENTRE A SORT DESC")
     return arr.sort(function (a, b) {
       if (a[field] > b[field]) {
         return -1;
@@ -46,6 +24,7 @@ function sortAsc(arr, field) {
     });
   }
   function filterBy(arr, field) {
+    console.log("ENTRE A FILTER BY")
     let filteredArr = [];
     for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < arr[i].diets.length; j++) {
@@ -68,6 +47,7 @@ function sortAsc(arr, field) {
   };
   
   function rootReducer(state = initialState, action) {
+  
     switch (action.type) {
       case "GET_RECIPES":
         return {
@@ -98,10 +78,11 @@ function sortAsc(arr, field) {
         };
   
       case "SORT_BY":
+        console.log("ENTRE A SORT BY")
         let sortedArr =
           action.payload === "ascendente"
-            ? sortAsc(state.recipes, "title")
-            : sortDesc(state.recipes, "title");
+            ? sortAsc(state.recipes, "name")
+            : sortDesc(state.recipes, "name");
   
         return {
           ...state,
@@ -124,10 +105,12 @@ function sortAsc(arr, field) {
           // eslint-disable-next-line
           recipes: state.recipes.sort(function (a, b) {
             if (action.payload === "min to max") {
-              return a.spoonacularScore - b.spoonacularScore;
+              return a.score - b.score;
+              
             }
             if (action.payload === "max to min") {
-              return b.spoonacularScore - a.spoonacularScore;
+              
+              return b.score - a.score;
             }
           }),
         };

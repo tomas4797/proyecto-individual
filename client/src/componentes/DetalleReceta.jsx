@@ -28,8 +28,8 @@ function DetalleReceta({ recipeDetail, getID, match }) {
                     <Nav />
                 </div>
                 <div className={styles.divMain}>
-                    <div className={styles.title}>
-                        <p>{recipeDetail.title}</p>
+                    <div className={styles.name}>
+                        <p>{recipeDetail.name}</p>
                     </div>
                     <br />
                     <br />
@@ -88,8 +88,8 @@ function DetalleReceta({ recipeDetail, getID, match }) {
                     <Nav />
                 </div>
                 <div className={styles.divMain}>
-                    <div className={styles.title}>
-                        <p>{recipeDetail.title}</p>
+                    <div className={styles.name}>
+                        <p>{recipeDetail.name}</p>
                     </div>
                     <br />
                     <br />

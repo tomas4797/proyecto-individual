@@ -88,10 +88,10 @@ export function CrearReceta(props) {
                     <h1>Create Recipe</h1>
                     {/* LOS ATRIBUTOS NAME SON NECESARIOS PORQUE LE AVISAN AL ESTADO QUÉ PROPIEDAD MODIFICAR, 
                         EL VALOR TAMBIÉN PORQUE VAN A SETEAR EL ATRIBUTO */}
-                    <div className={styles.title}>
+                    <div className={styles.name}>
                         <p>Title:</p>
 
-                        <input type="text" placeholder="Name your recipe" name="title" onChange={handleInputChange} value={input.title} />
+                        <input type="text" placeholder="Name your recipe" name="title" onChange={handleInputChange} value={input.name} />
 
                         <br />
 

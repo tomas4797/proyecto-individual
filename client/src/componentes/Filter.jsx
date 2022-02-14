@@ -59,6 +59,7 @@ function Filter(props) {
 
   const handleSelect = (e) => {
     e.preventDefault();
+    console.log ("ENTRE A HANDLE SELECT")
     props.sortRecipe(e.target.value);
   };
 

@@ -64,6 +64,7 @@ export function submit(input) {
 
 export function sortRecipe(payload) {
   //action que ordena
+  console.log("ENTRE A SORT RECIPE")
   return {
     type: "SORT_BY",
     payload: payload, //ascendente o desc
@@ -72,12 +73,14 @@ export function sortRecipe(payload) {
 
 export function filterBy(payload) {
   //action que ordena
+  console.log("ENTRE A  FILTER BY")
   return {
     type: "FILTER_BY",
     payload: payload, //ascendente o desc
   };
 }
 export function SortBy(payload) {
+  console.log("ENTRE A SORT BY")
   //action que ordena
   return {
     type: "SORT",
@@ -85,6 +88,7 @@ export function SortBy(payload) {
   };
 }
 export function filter(value) {
+  console.log("ENTRE A FILTER")
   return {
     type: "FILTER",
     payload: value,

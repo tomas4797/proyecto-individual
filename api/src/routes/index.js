@@ -20,7 +20,7 @@ const getApiInfo = async () => {
             id: el.id,
             name: el.title,
             summary: el.summary,
-            score: el.score,
+            score: el.spoonacularScore,
             healthScore: el.healthScore,
             steps: el.steps,
             diets: el.diets,

@@ -20,7 +20,7 @@ function MostrarRecetas({ recipes, filteredRecipes, getRecipes }) {
               <div key = { recipe.id } className={styles.divCentral}>
                 <div className={styles.divCard}>
                   <Link className={styles.link} to={`/recipe/${recipe.id}`}>
-                    <div className={styles.titles}>{recipe.name}</div>
+                    <div className={styles.name}>{recipe.name}</div>
                   </Link>
 
                   <img
