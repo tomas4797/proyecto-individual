@@ -10,7 +10,7 @@ export default function Landing() {
               {console.log ("Landing")}
               <h1>Bienvenido a las Recetas de Henry</h1>
           <a href="/Main" className={styles.btnStart}>
-                  Iniciar
+                  start
               </a>
           </div>
       </div>

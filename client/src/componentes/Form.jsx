@@ -26,7 +26,7 @@ export function CrearReceta(props) {
         score: 0,
         healthScore: 0,
         steps: '',
-        diets: [],
+        diet: [],
     });
 
     const [errors, setErrors] = useState({}); //ESTADO PARA LOS ERRORES
@@ -50,9 +50,11 @@ export function CrearReceta(props) {
     const handleCheck = function (e) {
         if (e.target.checked) {
             //SI SE MARCAN LOS CHECKS DE LOS TIPOS DE DIETA, SE PUSHEAN AL ARRAY DE DIETS
-            setInput({ ...input, diets: [...input.diets, e.target.value] });
+            setInput({ ...input, diet: [...input.diet, e.target.value] });
+
         } else {
-            setInput({ ...input, diets: input.diets.filter((diet) => diet !== e.target.value) })
+            setInput({ ...input, diet: input.diet.filter((diet) => diet !== e.target.value) })
+            console.log(input);
         };
     };
 
@@ -116,20 +118,24 @@ export function CrearReceta(props) {
                         <textarea type="text" name="steps" onChange={handleInputChange} value={input.steps} placeholder="How to prepare it" />
                         <br />
                         <p>Diets:</p>
-                        {props.diets && props.diets.map((diet) => {
+                        <ul  className={styles.checkboxGrid}>
+                        {props.diets && props.diets.map((diet, i) => {
+                            console.log(diet.id)
                             return (
-                                <ul className={styles.checkboxGrid}>
-                                    <li>
+                
+                                
+                                    <li key = {diet.id + i}>
                                         <input type="checkbox" name={diet.name} value={diet.name} onChange={(e) => handleCheck(e)} />
-
+                                    
                                         <label>
                                             {diet.name}
                                         </label>
                                     </li>
                                     
-                                </ul>
+                               
                             )
                         })}
+                         </ul>
                     </div>
                     <br />
                     {/* ESTO SOLO MUESTRA EL MENSAJE DE QUE LA RECETA SE ENVIÓ CON ÉXITO */}

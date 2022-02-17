@@ -7,11 +7,11 @@ function nav() {
            
             <ul className={styles.nav}>
                 <li>
-                    <a href='/'>
+                    <a href='/main'>
                         Home
                     </a>
                 </li>
-                <li><a href="/recipes">Recipes</a></li>
+              
                 <li><a href="/createrecipe">Create Recipe</a></li>
             </ul>   
         </div>

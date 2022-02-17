@@ -12,7 +12,7 @@ export function getRecipes(query) {
       });
     } else {
       return axios
-        .get("/recipes?query=" + query)
+        .get("/recipes?name=" + query)
         .then((response) => {
           console.log (response.data,"AAAAAAAAAAAAAAAAAAAAAAAAAA ELSE")
           
@@ -27,8 +27,8 @@ export function getRecipes(query) {
 
 export function getID(id) {
   return function (dispatch) {
-    return axios.get(`/recipes/` + id).then((response) => {
-      
+    return axios.get(`/recipe/` + id).then((response) => {
+      console.log(response.data)
       dispatch({
         type: "GET_ID",
         payload: response.data,
@@ -40,20 +40,21 @@ export function getID(id) {
 export function getDiets() {
   return function (dispatch) {
     return axios.get("/types").then((receta) => {
+      console.log(receta.data)
       dispatch({ type: "GET_TYPES", payload: receta.data });
     });
   };
 }
-
+// headers: {
+//   "Content-Type": "application/json;charset=utf-8",
+// },
+// body: JSON.stringify(input),
 export function submit(input) {
   return function (dispatch) {
-    return fetch("/recipe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(input),
-    }).then((response) => {
+    return axios.post("/recipe",input 
+     
+      
+    ).then((response) => {
       dispatch({
         type: "SUBMIT",
         payload: response.data,

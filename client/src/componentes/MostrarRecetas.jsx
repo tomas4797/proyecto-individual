@@ -24,7 +24,8 @@ function MostrarRecetas({ recipes, filteredRecipes, getRecipes }) {
                   </Link>
 
                   <img
-                    src={recipe.img}
+                    src={recipe.img? recipe.img : recipe.image}
+                    
                     alt="Imágen no encontrada"
                     className={styles.cardImg}
                   />

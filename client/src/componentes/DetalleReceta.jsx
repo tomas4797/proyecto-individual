@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, } from 'react';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getID } from '../store/actions/index'
 import parse from 'html-react-parser';
@@ -6,8 +7,9 @@ import styles from '../componentes/DetalleReceta.module.css';
 import Nav from '../componentes/Nav'
 
 function DetalleReceta({ recipeDetail, getID, match }) {
+    console.log (match)
 
-    const id = match.params.id;
+    const { id } = useParams()
     // let dietas = recipeDetail.types
     // console.log("asdasdksadsaldjsaljalsd", dietas)
 // eslint-disable-next-line
@@ -16,8 +18,9 @@ function DetalleReceta({ recipeDetail, getID, match }) {
     }
 
     useEffect(() => {
-        getIDFunction(id)
-    }, [getIDFunction, id])
+        // getIDFunction(id)
+        getID(id)
+    }, [id])
 
 
     if (typeof recipeDetail.id === "number") {
@@ -40,7 +43,7 @@ function DetalleReceta({ recipeDetail, getID, match }) {
                     <br />
                     <br />
                     <p>Score</p>
-                    <div className={styles.score}>{recipeDetail.spoonacularScore}</div>
+                    <div className={styles.score}>{recipeDetail.score}</div>
                     <br />
                     <br />
                     <p>Health Score</p>
@@ -48,33 +51,36 @@ function DetalleReceta({ recipeDetail, getID, match }) {
                     <br />
                     <br />
                     <p>DIET TYPES</p>
-                    {console.log(recipeDetail)}
-                    {recipeDetail.diets && recipeDetail.diets.map(recipe => {
+                    <p>{recipeDetail.diets.join(" ")}</p>
+                
+                    {/* {recipeDetail.diets && recipeDetail.diets.map(recipe => {
+                        
                         return <p>{recipe}</p>
-                    })}
+                    })} */}
                     <br />
                     <br />
                     <p>DISH TYPES</p>
-                    {recipeDetail.dishTypes && recipeDetail.dishTypes.map(plato => {
+                    <p>{recipeDetail.dishTypes.join(" ")}</p>
+                    {/* {recipeDetail.dishTypes && recipeDetail.dishTypes.map(plato => {
                         return <p>{plato}</p>
-                    })}
+                    })} */}
                     <br />
                     <br />
                     <p>SUMMARY</p>
                     <br />
                     <div className={styles.summary}>
-                        <p>
+                        <div>
                             {recipeDetail.summary && parse(recipeDetail.summary)}
-                        </p>
+                        </div>
                     </div>
                     <br />
                     <br />
                     <p>INSTRUCTIONS</p>
                     <br />
                     <div className={styles.instructions}>
-                        <p>
+                        <div>
                             {recipeDetail.instructions && parse(recipeDetail.instructions)}
-                        </p>
+                        </div>
                     </div>
 
                 </div>
@@ -83,7 +89,7 @@ function DetalleReceta({ recipeDetail, getID, match }) {
     } else {
         return (
             <div className={styles.divPrincipal}>
-                {console.log(recipeDetail)}
+                {console.log(recipeDetail, "asdadsasdasdasdasd")}
                 <div className={styles.nav}>
                     <Nav />
                 </div>
@@ -95,7 +101,7 @@ function DetalleReceta({ recipeDetail, getID, match }) {
                     <br />
                     <div className={styles.imgg}>
 
-                        <img src={recipeDetail.image} alt="Imagen no encontrada" />
+                        <img src={recipeDetail.image } alt="Imagen no encontrada" />
                     </div>
                     <br />
                     <br />
@@ -110,8 +116,8 @@ function DetalleReceta({ recipeDetail, getID, match }) {
                     <p>DIET TYPES</p>
                     
                     {/* {console.log(recipeDetail)} */}
-                    {recipeDetail.types && recipeDetail.types.map(recipe => {
-                        return <p>{recipe.name}</p>
+                    {recipeDetail.types && recipeDetail.types.map((recipe,i) => {
+                        return <p key = {i}>{recipe}</p>
                     })}
                     <br />
                     <br />
